@@ -114,7 +114,6 @@ C_IS=Fun_:)
 DESKTOP_SESSION=ubuntu
 LOGNAME=julien
 TERM=xterm-256color
-PATH=/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 DISPLAY=:0
 $ exit
 julien@ubuntu:~/shell$ 
