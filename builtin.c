@@ -76,4 +76,22 @@ int mycd(info_t *info)
 		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
 		_setenv(info, "PWD", getcwd(buffer, 1024));
 	return (0);
+
+}
+
+/**
+ * _myhelp - changes direct of the process
+ * @info: argument structure
+ * Return: 0
+ */
+int _myhelp(info_t *info)
+{
+	char **arg_arry;
+
+	arg_arry = info->argv;
+	_puts("Help works, function not yet implemented\n");
+
+	if (0)
+		_puts(*arg_arry);
+	return (0);
 }
