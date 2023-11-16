@@ -87,28 +87,30 @@ void find_cmd(info_t *info)
 	if (info->linecount_flag == 1)
 	{
 		info->line_count++;
-		if (info->linecount_flag = 0;
+		info->linecount_flag = 0;
 	}
 
 	for (i = 0, a = 0; info->arg[i]; i++)
 		if (!is_delim(info->arg[i], "\t\n"))
-			k++;
-	if (!k)
+			a++;
+	if (!a)
 		return;
 
 	path = find_path(info, _getenv(info, "PATH=") , info->argv[0]);
 	if (path)
 	{
 		info->path = path;
-		for_cmd(info);
+		fork_cmd(info);
 	}
 	else
 	{
 		if ((intrctiv(info) || _getenv(info, "PATH=")
 					|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
-		fork_cmd(info);
+		{
+			fork_cmd(info);
+		}
 
-		else if
+		else if (*(info->arg) != '\n')
 		{
 			info->status = 127;
 			print_error(info, "couldn't be found");
@@ -123,7 +125,7 @@ void find_cmd(info_t *info)
  */
 void fork_cmd(info_t *info)
 {
-	pid_t child_pid:
+	pid_t child_pid;
 
 	child_pid = fork();
 

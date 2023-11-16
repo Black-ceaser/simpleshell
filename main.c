@@ -5,14 +5,15 @@
  * @av: argument vector
  * Return: Success
  */
-int main(int ac, int **av)
+int main(int ac, char **av)
 {
 	info_t info[] = { INFO_INIT };
 	int fd = 2;
 
-	asm ("mov %1, %0\m\t"
+	asm ("mov %1, %0\n\t"
 			"add $3, %0"
-			: "=r" (fd));
+			: "=r" (fd)
+			: "r" (fd));
 
 	if (ac == 2)
 	{
@@ -27,7 +28,7 @@ int main(int ac, int **av)
 				_eputs(": 0: Couldn't open");
 				_eputs(av[1]);
 				_eputchar('\n');
-				_eputchar(BUF_FLUSH);
+				_eputchar(BUFF_FLUSH);
 				exit(127);
 			}
 			return (EXIT_FAILURE);

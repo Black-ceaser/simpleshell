@@ -114,6 +114,19 @@ char *convert_number(long int num, int base, int flags)
 	return (pt);
 }
 
+/**
+ * remove_comments - replaces the first instance of # with \0
+ * @buf:pointer to string to be modified
+ * Return: 0
+ */
+void remove_comments(char *buf)
+{
+	int i;
 
-
-
+	for (i = 0; buf[i] != '\0'; i++)
+		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+		{
+			buf[i] = '\0';
+			break;
+		}
+}

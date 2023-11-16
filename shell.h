@@ -72,11 +72,11 @@ list_t;
  * @env_changed: on if envrion was changed
  */
 
-typedef struct passinfo
-{
+typedef struct passinfo {
+
 	char *arg;
 	char *path;
-	char argc;
+	int argc;
 	char **argv;
 	int err_num;
 	int linecount_flag;
@@ -93,16 +93,15 @@ typedef struct passinfo
 	int cmd_buf_type;
 	int readfd;
 	int histcount;
-}
-info_t;
+} info_t;
 
 #define INFO_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+{NULL, NULL, 0, NULL, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, \
 	0, 0, 0}
 
 /**
  * struct builtin - conatian builtin string
- * @type: builtin command flag
+i * @type: builtin command flag
  *
  * @func: function
  */
@@ -196,8 +195,8 @@ char **get_environ(info_t *);
 int _unsetenv(info_t *, char *);
 int _setenv(info_t *, char *, char *);
 
-char *add_node(list_t **, const char *, int);
-list_t *add_node_end(list_t **, unsigned int);
+list_t *add_node(list_t **, const char *, int);
+list_t *add_node_end(list_t **, const char *, int);
 size_t print_list_str(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
