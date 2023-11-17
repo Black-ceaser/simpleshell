@@ -36,7 +36,7 @@ list_t *add_node(list_t **head, const char *str, int numb)
  * add_node_end - adds to the end of a list
  * @head: pointer to the head
  * @str: str field
- * @num: node index
+ * @numb: node index
  * Return: size of list
  */
 list_t *add_node_end(list_t **head, const char *str, int numb)
@@ -73,7 +73,8 @@ list_t *add_node_end(list_t **head, const char *str, int numb)
 }
 
 
-/**print_list_str - prints str elements of list_t
+/**
+ * print_list_str - prints str elements of list_t
  * @h: address of first node
  * Return: list size
  */
@@ -112,20 +113,45 @@ int delete_node_at_index(list_t **head, unsigned int index)
 		return (1);
 	}
 	node = *head;
-	whle (node)
+	while (node)
 	{
-		if (i == index)
+		if (a == index)
 		{
 			prev_node->next = node->next;
-			node = node->next;
+			free(node->str);
+			free(node);
+			return (1);
 		}
+		a++;
+		prev_node = node;
+		node = node->next;
 	}
 	return (0);
 }
 
 
+/**
+ * free_list - frees node
+ * @head_ptr: pointer to the head
+ * Return: void
+ */
+void free_list(list_t **head_ptr)
+{
+	list_t *node, *head, *next_node;
 
-
+	if (!head_ptr || !*head_ptr)
+		return;
+	head = *head_ptr;
+	node = head;
+	while (node)
+	{
+		next_node = node->next;
+		free(node->str);
+		free(node);
+		node = next_node;
+	}
+	*head_ptr = NULL;
+}
 
 
 

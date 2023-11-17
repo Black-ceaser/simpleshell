@@ -178,7 +178,7 @@ void signHand(int);
 char *_getenv(info_t *, const char *);
 int _myenv(info_t *);
 int _mysetenv(info_t *);
-int myunsetenv(info_t *);
+int _myunsetenv(info_t *);
 int populate_env_list(info_t *);
 
 void clear_info(info_t *);

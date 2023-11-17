@@ -150,7 +150,17 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	*ptr = p;
 	return (s);
 }
-
+/**
+ * signHand - blocks ctr c
+ * @sig_num: signal number
+ * Return: void
+ */
+void signHand(__attribute__((unused))int sig_num)
+{
+	_puts("\n");
+	_puts("$ ");
+	_putchar(BUFF_FLUSH);
+}
 
 
 
