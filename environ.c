@@ -64,7 +64,7 @@ int _myunsetenv(info_t *info)
 	return (0);
 }
 /**
- * populat_env_lst - populated linked list
+ * populate_env_lst - populated linked list
  * @info: argument structure
  * Return: 0
  */

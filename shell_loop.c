@@ -48,11 +48,10 @@ int hsh(info_t *info, char **av)
  */
 int find_builtin(info_t *info)
 {
-	int i;
-	int built_in_retturn = -1;
-	builtin_table builtinbl[] = {
-		{"env", _myenv},
+	int i, built_in_retturn = -1;
+	builtin_table builtintbl[] = {
 		{"exit", myexit},
+		{"env", _myenv},
 		{"help", _myhelp},
 		{"history", _myhistory},
 		{"setenv", _mysetenv},
@@ -61,11 +60,12 @@ int find_builtin(info_t *info)
 		{"alias", _myalias},
 		{NULL, NULL}
 	};
-	for (i = 0; builtinbl[i].type; i++)
-		if (_strcmp(info->argv[0], builtinbl[i].type) == 0)
+
+	for (i = 0; builtintbl[i].type; i++)
+		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
 		{
 			info->line_count++;
-			built_in_retturn = builtinbl[i].func(info);
+			built_in_retturn = builtintbl[i].func(info);
 			break;
 		}
 	return (built_in_retturn);
@@ -96,7 +96,7 @@ void find_cmd(info_t *info)
 	if (!a)
 		return;
 
-	path = find_path(info, _getenv(info, "PATH=") , info->argv[0]);
+	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
 	if (path)
 	{
 		info->path = path;

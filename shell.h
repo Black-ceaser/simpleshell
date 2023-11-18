@@ -108,7 +108,7 @@ i * @type: builtin command flag
 typedef struct builtin
 {
 	char *type;
-	int (*func)(info_t *);
+int (*func)(info_t *);
 }
 builtin_table;
 
